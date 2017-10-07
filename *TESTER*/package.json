@@ -1,10 +1,10 @@
 {
   "name": "tester",
   "version": "1.0.0",
-  "description": "tester",
-  "main": "fileToTest.js",
+  "description": "",
+  "main": "tester.js",
   "scripts": {
-    "test": "mocha testSuite.js"
+    "test": "mocha suite.js"
   },
   "author": "",
   "license": "ISC",
