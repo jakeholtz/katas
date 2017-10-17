@@ -13,9 +13,29 @@
  * inputs well.
  */
 
-var longestRun = function (string) {
-  // TODO: Your code here!
-};
+ var longestRun = function (string) {
+   if (string.length === 0) {
+     return null;
+   }
+   var record = 1;
+   var recordLetter = string[0];
+   var currNumber = 1;
+   var currLetter = string[0];
+
+   for (var i = 0; i < string.length - 1; i++) {
+     if (string[i] === string[i + 1]) {
+       currNumber++;
+       if (currNumber > record) {
+         record = currNumber;
+         recordLetter = currLetter;
+       }
+     } else {
+       var currNumber = 1;
+       var currLetter = string[i + 1];
+     }
+   }
+   return [string.indexOf(recordLetter), string.lastIndexOf(recordLetter)];
+ };
 
 // If you need a random string generator, use this!
 // (you wont need this function for your solution but it may help with testing)
