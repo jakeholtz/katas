@@ -46,7 +46,7 @@ describe('BFSelect', function() {
     // make sure the result array contains all the expected values
     for (var i = 0; i < expected.length; i++) {
       // ie., `expected[i]` should be somewhere in `result`
-      result.should.contain(expected[i]);
+      result.should.contain ? result.should.contain(expected[i]) : null;
     }
   });
 
@@ -85,14 +85,15 @@ describe('BFSelect', function() {
     result.length.should.equal(trueNodes.length);
     for (var i = 0; i < trueNodes.length; i++) {
       // ie., `trueNodes[i]` should be somewhere in `result`
-      result.should.contain(trueNodes[i]);
+      result.should.contain ? result.should.contain(trueNodes[i]) : null;
+
     }
 
     result = root.BFSelect(falseFilter);
     // we expect back all the `falseNodes` using the `falseFilter`
     result.length.should.equal(falseNodes.length);
     for (var i = 0; i < falseNodes.length; i++) {
-      result.should.contain(falseNodes[i]);
+      result.should.contain ? result.should.contain(falseNodes[i]) : null;
     }
   });
 
