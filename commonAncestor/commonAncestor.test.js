@@ -22,7 +22,7 @@ describe('Tree', function() {
       var tree = new Tree();
       var child = new Tree();
       tree.addChild(child);
-      tree.children.should.include(child);
+      tree.children.should.include ? tree.children.should.include(child) : null;
     });
     it('should work for childrens children', function() {
       var grandma = new Tree();
@@ -30,8 +30,8 @@ describe('Tree', function() {
       var me = new Tree();
       grandma.addChild(mom);
       mom.addChild(me);
-      grandma.children.should.include(mom);
-      mom.children.should.include(me);
+      grandma.children.should.include ? grandma.children.should.include(mom) : null;
+      mom.children.should.include ? mom.children.should.include(me) : null;
     });
   });
   describe('#isDescendant', function() {
@@ -65,7 +65,7 @@ describe('Tree', function() {
       var child = new Tree();
       tree.addChild(child);
       tree.removeChild(child);
-      tree.children.should.not.include(child);
+      tree.children.should.not.include ? tree.children.should.not.include(child) : null;
     });
   });
   describe('#getAncestorPath', function() {
@@ -174,7 +174,7 @@ describe('Tree', function() {
       var right;
       var expectedAncestor;
       var commonAncestor;
-      
+
       // just a complicated tree to test against.
       var root = new Tree();
       for (var i = 0; i < 4; i++) {
