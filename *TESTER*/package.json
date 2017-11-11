@@ -15,6 +15,7 @@
   "dependencies": {
     "assert": "^1.4.1",
     "chai": "^4.1.2",
-    "expect": "^21.2.1"
+    "expect": "^21.2.1",
+    "mocha": "^4.0.1"
   }
 }
