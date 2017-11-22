@@ -17,20 +17,15 @@
  * -> ["", "j", "ju", "jm", "jp", "jmu", "jmp", "jpu", "jmpu", "u", "m", "p", "mu", "mp", "pu", "mpu"]
  */
 
-ar powerSet = function(string) {
-  var stringObj = {};
-  string.split('').forEach(function(item) {
-    stringObj[item] = true;
-  });
-  var newString = Object.keys(stringObj).join('');
-
+var powerSet = function(str) {
+  str = Array.from(new Set(str.split(''))).join('');
   var uniques = {};
-  (function recurse(ana, str) {
-    uniques[ana] = true;
+  (function recurse (ana, str) {
+    var sorted = ana.split('').sort().join('');
+    uniques[sorted] = true;
     for (var i = 0; i < str.length; i++) {
-      recurse(ana + str[i], str.slice(i + 1));
+      recurse(ana + str[i], str.slice(0, i) + str.slice(i + 1));
     }
-  })('', newString);
-
+  })('', str);
   return Object.keys(uniques);
 };
