@@ -2,9 +2,9 @@
   "name": "tester",
   "version": "1.0.0",
   "description": "",
-  "main": "tester.js",
+  "main": "main.js",
   "scripts": {
-    "test": "mocha suite.js"
+    "test": "mocha tests.js"
   },
   "author": "",
   "license": "ISC",
