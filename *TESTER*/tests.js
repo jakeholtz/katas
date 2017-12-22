@@ -33,24 +33,31 @@ describe('Tree', function () {
   describe('Tree Methods', function() {
 
     var input = new Tree(1);
-    // depth: 1
-    input.addChild(2);
-    input.addChild(3);
+    var treeExists = false;
+    if (Tree && input.value) {
+      treeExists = true;
 
-    // depth: 2
-    input.children[0].addChild(4);
-    input.children[0].addChild(5);
-    input.children[1].addChild(6);
-    input.children[1].addChild(8);
-    // depth: 3 (sparse)
-    input.children[0].children[0].addChild(9);
-    input.children[1].children[1].addChild(10);
+      // depth: 1
+      input.addChild(2);
+      input.addChild(3);
+
+      // depth: 2
+      input.children[0].addChild(4);
+      input.children[0].addChild(5);
+      input.children[1].addChild(6);
+      input.children[1].addChild(8);
+
+      // depth: 3 (sparse)
+      input.children[0].children[0].addChild(9);
+      input.children[1].children[1].addChild(10);
+    }
 
     it('isDescendant should be a function', function() {
       Tree.prototype.isDescendant.should.be.a.Function;
     });
 
     it('isDescendant should identify if item is a child', function() {
+      treeExists.should.equal(true);
       var childOne = input.children[0].children[0];
       var childTwo = input.children[1].children[0];
       var result = input.isDescendant(childOne);
@@ -60,6 +67,7 @@ describe('Tree', function () {
     });
 
     it('isDescendant should identify if item is NOT a child', function() {
+      treeExists.should.equal(true);
       var childOne = new Tree(100)
       var childTwo = new Tree(5)
       var result = input.isDescendant(childOne);
@@ -73,6 +81,7 @@ describe('Tree', function () {
     });
 
     it('addChild should add multiple children', function() {
+      treeExists.should.equal(true);
       var result = input.children;
       should.exist(result);
       result.should.have.length(2);
@@ -83,6 +92,7 @@ describe('Tree', function () {
     });
 
     it('addChild should add children with correct values', function() {
+      treeExists.should.equal(true);
       var result = input.children;
       should.exist(result);
       result[0].value.should.equal(2);
@@ -99,6 +109,7 @@ describe('Tree', function () {
     });
 
     it('removeChild should delete children properly', function() {
+      treeExists.should.equal(true);
       var childOne = input.children[0];
       var childTwo = input.children[1];
       input.removeChild(childOne);
